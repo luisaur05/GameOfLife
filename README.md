@@ -2,10 +2,6 @@
 
 This project implements a simulation of John Conway's Game of Life using the C programming language. The game includes an interactive console interface, initial animations, and the possibility to customize the appearance of the cells in the simulation.
 
-## Author
-
-Luis Ángel Arredondo Uribe  
-Bachelor's Degree in Mathematical Computing
 
 ---
 
