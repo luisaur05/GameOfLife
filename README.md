@@ -1,116 +1,114 @@
-# Juego de la Vida
+# Game of Life
 
-Este proyecto implementa una simulación del Juego de la Vida de John Conway utilizando el lenguaje de programación C. El juego incluye una interfaz interactiva en consola, animaciones iniciales y la posibilidad de personalizar el aspecto de las células en la simulación.
+This project implements a simulation of John Conway's Game of Life using the C programming language. The game includes an interactive console interface, initial animations, and the possibility to customize the appearance of the cells in the simulation.
 
-## Autor
+## Author
 
 Luis Ángel Arredondo Uribe  
-Licenciatura en Computación Matemática
+Bachelor's Degree in Mathematical Computing
 
 ---
 
-## Descripción del Juego
+## Game Description
 
-El **Juego de la Vida** es un autómata celular diseñado por el matemático John Conway. El juego se desarrolla en una cuadrícula donde cada celda puede estar "viva" o "muerta". A medida que el juego avanza, el estado de cada celda evoluciona según las siguientes reglas:
+The **Game of Life** is a cellular automaton designed by mathematician John Conway. The game takes place on a grid where each cell can be either "alive" or "dead." As the game progresses, the state of each cell evolves according to the following rules:
 
-1. Una célula viva con menos de dos vecinos vivos muere por soledad.
-2. Una célula viva con más de tres vecinos vivos muere por sobrepoblación.
-3. Una célula muerta con exactamente tres vecinos vivos "nace".
-4. En cualquier otro caso, la célula mantiene su estado actual.
-
----
-
-## Características
-
-- **Interfaz interactiva:** Permite seleccionar el símbolo y color de las células.
-- **Animaciones:** Presentaciones visuales iniciales con cambios de color.
-- **Estados iniciales aleatorios:** Genera configuraciones aleatorias para iniciar el juego.
-- **Reglas configuradas:** Implementación fiel de las reglas del Juego de la Vida.
-- **Pantalla dinámica:** Actualiza la cuadrícula en tiempo real.
+1. A live cell with fewer than two live neighbors dies from loneliness.
+2. A live cell with more than three live neighbors dies from overpopulation.
+3. A dead cell with exactly three live neighbors "comes to life."
+4. In any other case, the cell remains in its current state.
 
 ---
 
-## Requisitos del Sistema
+## Features
 
-- Sistema operativo compatible con terminal ANSI (Linux, macOS, o Windows con soporte ANSI).
-- Compilador compatible con C (como GCC).
-- Biblioteca estándar de C.
+- **Interactive Interface:** Allows selecting the symbol and color of the cells.
+- **Animations:** Initial visual presentations with color changes.
+- **Random initial states:** Generates random configurations to start the game.
+- **Configured rules:** Accurate implementation of the Game of Life rules.
+- **Dynamic screen:** Updates the grid in real-time.
 
 ---
 
-## Estructura del Proyecto
+## System Requirements
 
-El proyecto está dividido en los siguientes archivos:
+- Operating system compatible with ANSI terminal (Linux, macOS, or Windows with ANSI support).
+- C-compatible compiler (such as GCC).
+- C standard library.
+
+---
+
+## Project Structure
+
+The project is divided into the following files:
 
 ### `main.c`
-- **Descripción**: Contiene el flujo principal del programa, que incluye la configuración inicial, la animación de bienvenida y la simulación del juego.
-- **Funciones principales**:
-  - `main`: Controla el inicio del juego y la interacción con el usuario.
-  - `instrucciones`: Muestra las reglas del juego y permite al usuario seleccionar una opción (jugar o salir).
-  - `opcion1`, `opcion2`: Configuran el carácter y color de las células.
+- **Description**: Contains the main flow of the program, including initial setup, welcome animation, and the game simulation.
+- **Main functions**:
+  - `main`: Controls the start of the game and user interaction.
+  - `instrucciones`: Displays the game rules and allows the user to select an option (play or exit).
+  - `opcion1`, `opcion2`: Set the character and color of the cells.
 
 ### `juego.c`
-- **Descripción**: Implementa las funciones principales para la manipulación del mundo del juego, como inicialización, cálculo del siguiente estado, y representación visual.
-- **Funciones clave**:
-  - `mimundo`: Inicializa el mundo y define las relaciones entre células vecinas.
-  - `mundorandom`: Genera un estado inicial aleatorio para las células.
-  - `imprimecelulas`: Representa gráficamente el estado actual del mundo en la consola.
-  - `mundoactual`: Calcula el siguiente estado de cada célula según las reglas del juego.
+- **Description**: Implements the main functions for manipulating the game world, such as initialization, calculating the next state, and visual representation.
+- **Key functions**:
+  - `mimundo`: Initializes the world and defines the relationships between neighboring cells.
+  - `mundorandom`: Generates a random initial state for the cells.
+  - `imprimecelulas`: Graphically represents the current state of the world in the console.
+  - `mundoactual`: Calculates the next state of each cell based on the game's rules.
 
 ### `juego.h`
-- **Descripción**: Archivo de encabezado que contiene las definiciones de estructuras y prototipos de funciones utilizados en `juego.c`.
-- **Componentes clave**:
-  - Estructura `celula`: Define el estado de cada célula y sus vecinos.
-  - Estructura `mundo`: Define el espacio donde ocurren las simulaciones.
+- **Description**: Header file containing the structure definitions and function prototypes used in `juego.c`.
+- **Key components**:
+  - Structure `celula`: Defines the state of each cell and its neighbors.
+  - Structure `mundo`: Defines the space where the simulations occur.
 
+## Features
+- Customization of the character and color of the cells.
+- Animated simulation with transitions between generations.
+- Welcome animation at the start of the program.
+- Friendly console interface with simple controls.
 
-## Características
-- Personalización del carácter y color de las células.
-- Simulación animada con transiciones entre generaciones.
-- Animación de presentación al inicio del programa.
-- Interfaz de consola amigable con controles sencillos.
-
-## Requisitos del Sistema
-- **Sistema operativo**: Linux, macOS o Windows con soporte para ANSI escape codes.
-- **Compilador**: GCC o cualquier compilador de C compatible.
-- **Librerías estándar**:
+## System Requirements
+- **Operating system**: Linux, macOS, or Windows with ANSI escape code support.
+- **Compiler**: GCC or any compatible C compiler.
+- **Standard libraries**:
   - `stdio.h`
   - `stdlib.h`
-  - `unistd.h` (para la función `usleep`).
+  - `unistd.h` (for the `usleep` function).
 
-## Instrucciones de Uso
-1. Clona el repositorio o descarga los archivos del proyecto.
-2. Compila el programa:
+## Usage Instructions
+1. Clone the repository or download the project files.
+2. Compile the program:
    ```bash
    gcc -o juego main.c juego.c
 
+## Game Rules
 
-## Reglas del Juego
+- **Birth**: A cell is born if it has exactly 3 live neighbors.
+- **Loneliness**: A cell dies from loneliness if it has fewer than 2 live neighbors.
+- **Overpopulation**: A cell dies from overpopulation if it has more than 3 live neighbors.
+- **Survival**: Otherwise, a cell remains alive.
 
-- **Nacimiento**: Una célula nace si tiene exactamente 3 vecinos vivos.
-- **Soledad**: Una célula muere por soledad si tiene menos de 2 vecinos vivos.
-- **Sobrepoblación**: Una célula muere por sobrepoblación si tiene más de 3 vecinos vivos.
-- **Supervivencia**: En caso contrario, una célula permanece viva.
+## How to Play
 
-## Cómo Jugar
+Upon starting the program, a welcome animation will appear.
 
-Al iniciar el programa, aparecerá una animación de bienvenida.
-
-### Paso 1: Selección de símbolos
-Selecciona el símbolo que deseas usar para representar las células. Puedes elegir entre:
+### Step 1: Symbol selection
+Select the symbol you want to use to represent the cells. You can choose from:
 - `*`
 - `#`
 - `█`
 
-### Paso 2: Selección del color
-Elige el color de las células. Algunas opciones comunes son:
-- Blanco
-- Rojo
-- Verde
-- Y otros colores disponibles en el programa.
+### Step 2: Color selection
+Choose the color of the cells. Some common options are:
+- White
+- Red
+- Green
+- And other colors available in the program.
 
-### Paso 3: Observa la simulación
-Observa cómo la simulación evoluciona en tiempo real. El programa mostrará la evolución de las células según las reglas que se apliquen.
+### Step 3: Observe the simulation
+Watch how the simulation evolves in real time. The program will show the evolution of the cells according to the rules that apply.
 
-### Paso 4: Salir del programa
-Para salir del programa en cualquier momento, presiona `CTRL + C` en tu teclado.
+### Step 4: Exit the program
+To exit the program at any time, press `CTRL + C` on your keyboard.
